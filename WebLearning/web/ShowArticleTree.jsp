@@ -23,7 +23,9 @@
         rs = stmt.executeQuery(sql);
         while(rs.next()){
             str += "<tr><td>" + rs.getInt("id") + "</td><td>" +
-                    preStr + "<a href='ShowArticleDetail.jsp?id=" + rs.getInt("id") + "'>" + rs.getString("title") + "</a>" +"</td></tr>";
+                    preStr + "<a href='ShowArticleDetail.jsp?id=" + rs.getInt("id") + "'>" + rs.getString("title") + "</a></td>" +
+                    "<td><a href='Delete.jsp?id="+ rs.getInt("id") + "&pid=" + rs.getInt("pid") + "'>删除</a>" +
+                    "</td></tr>";
             if(rs.getInt("isleaf") != 0){
                 tree(conn, rs.getInt("id"), level+1);
             }
@@ -57,7 +59,8 @@
     while(resultSet.next()){
         str += "<tr><td>" + resultSet.getInt("id") + "</td><td>" +
                 "<a href='ShowArticleDetail.jsp?id=" + resultSet.getInt("id")+ "'>" +
-                resultSet.getString("title") + "</a>" +
+                resultSet.getString("title") + "</a></td>" +
+                "<td><a href='Delete.jsp?id="+ resultSet.getInt("id") + "&pid=" + resultSet.getInt("pid") + "'>删除</a>" +
                 "</td></tr>";
         if(resultSet.getInt("isleaf") != 0){
             tree(connection, resultSet.getInt("id"), 1);
