@@ -9,6 +9,9 @@
 <%@ page contentType="text/html;charset=utf-8" language="java" pageEncoding="UTF-8" %>
 
 <%
+    /*
+    请求发过来的时候编码是ISO的，这里必须设置为utf8才能正常的输入数据。
+     */
     request.setCharacterEncoding("utf-8");
 
     int id = Integer.parseInt(request.getParameter("id"));
@@ -22,6 +25,7 @@
     String url = "jdbc:mysql://localhost/bbs?user=root&password=root";
     Connection conn = DriverManager.getConnection(url);
 
+    //这里使用事务处理机制
     conn.setAutoCommit(false);
 
     Statement stmt = conn.createStatement();
