@@ -26,7 +26,7 @@
 
 
     Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://localhost/bbs?user=root&password=root";
+    String url = "jdbc:mysql://47.94.245.251:3306/bbs?&user=wangchenhao&password=Zxn960305.&useUnicode=true&characterEncoding=UTF-8";
     Connection conn = DriverManager.getConnection(url);
 
     Statement stmtCount = conn.createStatement();

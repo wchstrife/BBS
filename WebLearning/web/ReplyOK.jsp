@@ -17,12 +17,28 @@
     int id = Integer.parseInt(request.getParameter("id"));
     int rootId = Integer.parseInt(request.getParameter("rootid"));
     String title = request.getParameter("title");
+    title = title.trim();
+
+    if(title == null){
+        out.println("error!");
+    }
+
+    if(title.equals("")){
+        out.println("title could not be empty!");
+        return;
+    }
     String cont = request.getParameter("cont");
+    cont = cont.trim();
+
+    if(cont.equals("")){
+        out.println("content could not be empty!");
+        return;
+    }
 
     cont.replaceAll("\n", "<br>");
 
     Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://localhost/bbs?user=root&password=root";
+    String url = "jdbc:mysql://47.94.245.251:3306/bbs?&user=wangchenhao&password=Zxn960305.&useUnicode=true&characterEncoding=UTF-8";
     Connection conn = DriverManager.getConnection(url);
 
     //这里使用事务处理机制

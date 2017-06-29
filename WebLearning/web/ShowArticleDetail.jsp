@@ -14,7 +14,7 @@
     String strId = request.getParameter("id");
     int id = Integer.parseInt(strId);
     Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://localhost/bbs?user=root&password=root";
+    String url = "jdbc:mysql://47.94.245.251:3306/bbs?&user=wangchenhao&password=Zxn960305.&useUnicode=true&characterEncoding=UTF-8";
     Connection conn = DriverManager.getConnection(url);
 
     Statement stmt = conn.createStatement();
@@ -46,7 +46,7 @@
 
 </table>
 
-<%System.out.println(rs.getInt("rootid"));%>
+
 <a href="Reply.jsp?id= <%=rs.getInt("id")%>&rootid=<%=rs.getInt("rootid")%>">回复</a>
 
 <%
